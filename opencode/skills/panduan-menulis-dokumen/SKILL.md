@@ -585,6 +585,15 @@ Salah: Isi Program dalam 1 Slide
 
 Frasa seperti "3 langkah" dan "dalam 1 slide" membicarakan kemasan, bukan isi. Itu metawacana, dan tempatnya bukan di judul.
 
+Kriteria tambahan: dilarang memakai judul, kepala kartu, atau label yang berawalan frasa menggantung seperti "Yang membuat ...", "Yang tidak termasuk ...". Bentuk itu menjanjikan isi tanpa menyatakannya sehingga pembaca harus membaca lebih dahulu untuk tahu maksudnya. Ganti dengan frasa benda atau kalimat yang langsung menyebut isi.
+
+| Tidak lolos | Lolos |
+|---|---|
+| Yang membuat e-MedTerm berbeda | Penilaian otomatis tanpa koreksi manual |
+| Yang tidak termasuk dan tidak dibangun pada versi pertama | Batas fitur versi pertama |
+
+Jika dua fakta setara ingin digabung dalam satu baris judul, pakai titik tengah alih-alih koma. Contoh lolos: `Lima jenis soal · Semua dinilai otomatis`.
+
 ### 5.2 Poin dan penjelasannya
 
 Poin bahasan berdiri sendiri sebagai baris. Penjelasannya ditulis sebagai kalimat utuh di bawahnya, bukan ditempelkan setelah titik dua.
