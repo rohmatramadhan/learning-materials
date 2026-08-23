@@ -1,4 +1,4 @@
-# Skrip Pemasang Paket Skill IODA untuk OpenCode / IODA Skill Package Installer Script for OpenCode
+﻿# Skrip Pemasang Paket Skill IODA untuk OpenCode / IODA Skill Package Installer Script for OpenCode
 [CmdletBinding()]
 param(
     [Parameter(Mandatory = $false)]
@@ -32,7 +32,7 @@ try {
 }
 
 # 2. Pengecekan versi OpenCode / Check OpenCode version
-Write-Host "[1/6] Memeriksa instalasi dan versi OpenCode..." -ForegroundColor Yellow
+Write-Host "[1/7] Memeriksa instalasi dan versi OpenCode..." -ForegroundColor Yellow
 $openCodeCli = Get-Command "opencode" -ErrorAction SilentlyContinue
 
 if ($null -eq $openCodeCli) {
@@ -63,7 +63,7 @@ if ($null -eq $openCodeCli) {
 
 # 3. Tentukan direktori target konfigurasi / Determine target configuration directory
 if ([string]::IsNullOrWhiteSpace($TargetConfigPath)) {
-    Write-Host "[2/6] Mendeteksi jalur konfigurasi OpenCode via 'opencode debug paths'..." -ForegroundColor Yellow
+    Write-Host "[2/7] Mendeteksi jalur konfigurasi OpenCode via 'opencode debug paths'..." -ForegroundColor Yellow
     try {
         $debugPaths = & opencode debug paths 2>&1
         $configLine = $debugPaths | Where-Object { $_ -match "^config\s+(.+)$" }
@@ -87,7 +87,7 @@ if (-not (Test-Path -LiteralPath $TargetConfigPath)) {
 }
 
 # 4. Validasi pra-salin berkas paket dan hash SHA-256 / Pre-copy validation of package files and SHA-256 hash
-Write-Host "[3/6] Memvalidasi integritas berkas paket sebelum pemasangan..." -ForegroundColor Yellow
+Write-Host "[3/7] Memvalidasi integritas berkas paket sebelum pemasangan..." -ForegroundColor Yellow
 foreach ($entry in $manifest.files) {
     if ($entry.source -match "(^\w+:|^\/|^\\[a-zA-Z0-9]|\.\.)" -or $entry.target -match "(^\w+:|^\/|^\\[a-zA-Z0-9]|\.\.)") {
         Write-Host "[GALAT] Path traversal atau path absolut terdeteksi pada manifes: $($entry.source)" -ForegroundColor Red
@@ -109,7 +109,7 @@ foreach ($entry in $manifest.files) {
 Write-Host "  Seluruh hash berkas sumber valid 100%." -ForegroundColor Green
 
 # 5. Siapkan pencadangan (backup) untuk direktori skill target yang sudah ada / Prepare backup for existing target skill directories
-Write-Host "[4/6] Menyiapkan pencadangan skill eksisting..." -ForegroundColor Yellow
+Write-Host "[4/7] Menyiapkan pencadangan skill eksisting..." -ForegroundColor Yellow
 $backupDir = Join-Path ([System.IO.Path]::GetTempPath()) ("opencode-backup-" + [System.Guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Path $backupDir -Force | Out-Null
 
@@ -139,7 +139,7 @@ foreach ($skillSubDir in $affectedSkillDirs.Keys) {
 }
 
 # 6. Salin berkas dan verifikasi pasca-salin / Copy files and post-copy verification
-Write-Host "[5/6] Memasang berkas ke direktori target..." -ForegroundColor Yellow
+Write-Host "[5/7] Memasang berkas ke direktori target..." -ForegroundColor Yellow
 $installedFilesList = @()
 $installSuccess = $false
 
@@ -197,8 +197,49 @@ try {
     }
 }
 
-# 7. Informasi penyelesaian / Completion information
-Write-Host "[6/6] Pemasangan berhasil diselesaikan!" -ForegroundColor Green
+# 7. Pasang ulang skill pendukung wajib: 9router-web-search / Ensure mandatory companion skill: 9router-web-search
+Write-Host "[6/7] Memastikan skill pendukung '9router-web-search' tersedia..." -ForegroundColor Yellow
+$nineRouterSkillDir = Join-Path $TargetConfigPath "skills\9router-web-search"
+$nineRouterSkillFile = Join-Path $nineRouterSkillDir "SKILL.md"
+$nineRouterSourceUrl = "https://raw.githubusercontent.com/decolua/9router/refs/heads/master/skills/9router-web-search/SKILL.md"
+
+if (Test-Path -LiteralPath $nineRouterSkillFile) {
+    Write-Host "  Skill '9router-web-search' sudah terpasang, dilewati." -ForegroundColor Green
+} else {
+    $downloadOk = $false
+    try {
+        if (-not (Test-Path -LiteralPath $nineRouterSkillDir)) {
+            New-Item -ItemType Directory -Path $nineRouterSkillDir -Force | Out-Null
+        }
+        # Unduh via Invoke-WebRequest lalu cadangan curl.exe / Download via Invoke-WebRequest with curl.exe fallback
+        try {
+            Invoke-WebRequest -Uri $nineRouterSourceUrl -OutFile $nineRouterSkillFile -UseBasicParsing -TimeoutSec 30
+            $downloadOk = $true
+        } catch {
+            & curl.exe -L -s --max-time 30 -o $nineRouterSkillFile $nineRouterSourceUrl
+            if ((Test-Path -LiteralPath $nineRouterSkillFile) -and ((Get-Item -LiteralPath $nineRouterSkillFile).Length -gt 0)) {
+                $downloadOk = $true
+            }
+        }
+
+        if ($downloadOk) {
+            $headContent = Get-Content -LiteralPath $nineRouterSkillFile -TotalCount 10 -ErrorAction SilentlyContinue
+            if (-not ($headContent -match "9router")) {
+                throw "Isi unduhan tidak tampak seperti SKILL.md 9router."
+            }
+            Write-Host "  Skill '9router-web-search' berhasil dipasang otomatis dari repositori resmi." -ForegroundColor Green
+        } else {
+            throw "Unduhan gagal atau berkas kosong."
+        }
+    } catch {
+        Remove-Item -LiteralPath $nineRouterSkillFile -Force -ErrorAction SilentlyContinue
+        Write-Host "  [PERINGATAN] Gagal memasang '9router-web-search': $_" -ForegroundColor DarkYellow
+        Write-Host "  Pemasangan paket tetap lanjut. Riset daring dapat memakai 'webfetch' dan API publik gratis sebagai jalur utama." -ForegroundColor DarkYellow
+    }
+}
+
+# 8. Informasi penyelesaian / Completion information
+Write-Host "[7/7] Pemasangan berhasil diselesaikan!" -ForegroundColor Green
 Write-Host "==================================================" -ForegroundColor Cyan
 Write-Host "Paket '$($manifest.name)' v$($manifest.version) berhasil dipasang." -ForegroundColor Green
 Write-Host "Direktori: $TargetConfigPath\skills\" -ForegroundColor White

@@ -42,9 +42,31 @@ Menangkap informasi kunci sebelum riset dimulai:
 
 ## 3. Tahap 2: Riset Kasus & Bukti (`riset-<topik>.md`)
 
+### 3.1 Rantai Alat Riset Wajib
+
+Riset **wajib** mengakses internet secara live menggunakan urutan alat berikut. Dilarang menulis `riset-<topik>.md` hanya dari pengetahuan internal tanpa bukti daring yang divalidasi pada hari riset:
+
+| Urutan | Alat | Fungsi | Biaya |
+|---|---|---|---|
+| 1 | `9router-web-search` (skill) | Mencari kandidat kasus, sumber resmi, dan referensi. | Gratis |
+| 2 | `webfetch` (bawaan OpenCode) | Mengambil dan membaca isi URL menjadi teks bersih. | Gratis |
+| 3 | `curl` via terminal | Memvalidasi status tautan (HTTP 200) dan mengunduh berkas. | Gratis |
+| 4 | API publik gratis (Crossref, arXiv, npm/PyPI registry) | Memverifikasi jurnal ilmiah, DOI, dan versi perangkat lunak. | Gratis |
+| 5 | `https://kbbi.web.id/<kata>` | Verifikasi status kata KBBI per kata. Contoh: `https://kbbi.web.id/makalah`. | Gratis |
+| 6 | `https://ejaan.kemendikdasmen.go.id/` | Verifikasi kaidah EYD Edisi V. | Gratis |
+
+Aturan penggunaan:
+1. **Wajib mulai pencarian** dengan `9router-web-search`. Jika skill ini tidak merespons, lanjutkan pencarian melalui mesin telusur yang dapat dibuka `webfetch`, lalu laporkan penyimpangan alat pada bagian catatan riset.
+2. **Wajib verifikasi dua arah:** setiap klaim faktual wajib dibaca isi halamannya (`webfetch`) DAN status tautannya dicek (`curl` menghasilkan HTTP 200).
+3. **Wajib verifikasi bahasa:** kata baku dicek ke `kbbi.web.id/<kata>` dan kaidah penulisan ke `ejaan.kemendikdasmen.go.id`. Situs KBBI resmi `kbbi.kemendikdasmen.go.id` memerlukan masuk log; hanya dipakai jika pengguna memberi akun pada sesi berjalan, tanpa menyimpan kredensial ke berkas.
+4. Jika seluruh alat daring gagal (offline), jangan mengarang sumber. Hentikan tahap riset dan tandai `[BUTUH DATA: verifikasi sumber <klaim>]`.
+5. Alat opsional lain (MCP Firecrawl, Context7, Perplexity API) hanya dipakai jika sudah terpasang; keberadaannya bukan syarat alur.
+
+### 3.2 Pola Dua Lapis Kasus
+
 Riset dilakukan secara terarah menggunakan pola **Dua Lapis Kasus**:
 1. **Kasus Nyata (Pemantik):**
-   - Kejadian nyata yang terverifikasi (ada nama pelapor, tahun, URL resmi).
+   - Kejadian nyata yang terverifikasi (ada nama pelapor, tahun, URL resmi aktif).
    - Berfungsi sebagai pemantik rasa ingin tahu. Jangan merekonstruksi domain rumitnya.
 2. **Skenario Kerja Sederhana (Kasus Utama):**
    - Skenario terisolasi yang dekat dengan dunia kerja peserta.

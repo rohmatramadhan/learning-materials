@@ -518,11 +518,20 @@ Setiap istilah asing dan setiap kata yang ejaannya diragukan wajib dicek ke sumb
 
 ### 4.2 Dua sumber, dua urusan
 
-`kbbi.kemdikbud.go.id` untuk status kata dan bentuk bakunya.
+KBBI untuk status kata dan bentuk bakunya. Alat cek wajib:
 
-`ejaan.kemdikbud.go.id` untuk kaidah EYD Edisi V: tanda baca, huruf miring, huruf kapital, penulisan angka dan bilangan, unsur serapan, kata depan, partikel, dan konjungsi.
+1. Utama: `https://kbbi.web.id/<kata>`. Contoh: `https://kbbi.web.id/makalah`. Tidak perlu masuk log dan dapat diakses langsung melalui `webfetch` atau `curl`.
+2. Cadangan resmi: `https://kbbi.kemendikdasmen.go.id/`. Situs ini memerlukan masuk log; gunakan hanya jika pengguna menyediakan akun pada sesi berjalan. Jangan pernah menyimpan kredensial ke berkas mana pun.
+
+EYD Edisi V untuk kaidah: tanda baca, huruf miring, huruf kapital, penulisan angka dan bilangan, unsur serapan, kata depan, partikel, dan konjungsi. Alat cek: `https://ejaan.kemendikdasmen.go.id/`.
 
 Jika ragu sebuah persoalan masuk yang mana, ujinya begini. Pertanyaan tentang satu kata tertentu dicek ke KBBI. Pertanyaan tentang cara menulis dicek ke EYD.
+
+Cara kerja agen saat mengecek:
+1. Ambil halaman `https://kbbi.web.id/<kata>` dengan `webfetch`.
+2. Halaman memuat entri berarti kata sudah diserap; tulis tegak sesuai entri.
+3. Halaman tidak memuat entri (kata tidak ditemukan) berarti belum diserap; tulis miring.
+4. Jika `kbbi.web.id` gagal dijangkau, coba mesin telusur lewat `webfetch`, lalu laporkan batas verifikasinya. Jangan menebak.
 
 ### 4.3 Prosedur
 
