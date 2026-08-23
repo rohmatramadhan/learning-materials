@@ -1,0 +1,38 @@
+{
+  "name": "ioda-materials-suite",
+  "version": "0.1.0",
+  "min_opencode_version": "1.0.0",
+  "description": "Paket skill OpenCode resmi IODA untuk penulisan materi pelatihan dan penyusunan brief slide presentasi.",
+  "files": [
+    {
+      "source": "opencode/skills/panduan-menulis-dokumen/SKILL.md",
+      "target": "skills/panduan-menulis-dokumen/SKILL.md",
+      "component": "skill",
+      "sha256": "bd7ced69c91008ecb352183fbd8404a261252d029d2f41f892e69fef6edf622f"
+    },
+    {
+      "source": "opencode/skills/panduan-menulis-dokumen/references/ejaan-dan-ragam.md",
+      "target": "skills/panduan-menulis-dokumen/references/ejaan-dan-ragam.md",
+      "component": "reference",
+      "sha256": "c5afb2c5c90e8965e3e1d771181d8be0841bb7aeb28fa06db129e821efeef74a"
+    },
+    {
+      "source": "opencode/skills/penyusun-brief-ppt-ioda/SKILL.md",
+      "target": "skills/penyusun-brief-ppt-ioda/SKILL.md",
+      "component": "skill",
+      "sha256": "2e86843fc64fd9a23e6c4ffe00761629b7697ae72af21f08b0daf39f46d269e8"
+    },
+    {
+      "source": "opencode/skills/penyusun-brief-ppt-ioda/references/katalog-visual-materi-ioda.md",
+      "target": "skills/penyusun-brief-ppt-ioda/references/katalog-visual-materi-ioda.md",
+      "component": "reference",
+      "sha256": "6e41a41d99feb0683cef3424cedb41aa1d18d95826fd27d5296e2a31ab889a9e"
+    },
+    {
+      "source": "opencode/skills/penyusun-brief-ppt-ioda/examples/contoh-brief-ppt.md",
+      "target": "skills/penyusun-brief-ppt-ioda/examples/contoh-brief-ppt.md",
+      "component": "example",
+      "sha256": "a051104391b3cd7bae9eabe2a77a63923141527808f6098fc2cde54cf26cfc35"
+    }
+  ]
+}
