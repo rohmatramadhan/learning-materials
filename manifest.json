@@ -5,6 +5,12 @@
   "description": "Paket skill OpenCode resmi IODA untuk penulisan materi pelatihan dan penyusunan brief slide presentasi.",
   "files": [
     {
+      "source": "opencode/skills/learning-materials-ioda-academy/SKILL.md",
+      "target": "skills/learning-materials-ioda-academy/SKILL.md",
+      "component": "skill",
+      "sha256": "af1c6dcb36ffba3c3601e058aeac7b1a2cb1e98e842c179628b9ba51aa1cd669"
+    },
+    {
       "source": "opencode/skills/panduan-menulis-dokumen/SKILL.md",
       "target": "skills/panduan-menulis-dokumen/SKILL.md",
       "component": "skill",

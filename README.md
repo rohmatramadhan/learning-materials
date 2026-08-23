@@ -1,16 +1,22 @@
 # Ioda Materials Suite (`ioda-materials-suite`)
 
-Paket skill resmi untuk menyusun materi pelatihan Ioda Academy di lingkungan OpenCode.
+Paket skill resmi untuk merancang dan menyusun materi pelatihan Ioda Academy di lingkungan OpenCode.
 
-## Isi Paket
+## Isi Paket Skill
 
-1. **`panduan-menulis-dokumen`**
+1. **`learning-materials-ioda-academy` (Skill Utama)**
+   - Mengorkestrasi seluruh alur materi dari awal sampai akhir:
+     1. `learning-brief.md` (Analisis profil peserta & tujuan belajar)
+     2. `riset-<topik>.md` (Riset bukti & skenario kerja 2 lapis)
+     3. `materi-<topik>.md` (Naskah naratif materi utama 10 fungsi)
+     4. `brief-ppt-<topik>.md` (Arahan slide presentasi)
+2. **`panduan-menulis-dokumen`**
    - Standar penulisan bahasa Indonesia baku ragam formal.
    - Dilengkapi tabel referensi ejaan baku dan padanan ragam cakapan (`references/ejaan-dan-ragam.md`).
-2. **`penyusun-brief-ppt-ioda`**
+3. **`penyusun-brief-ppt-ioda`**
    - Penyusun berkas arahan presentasi (`brief-ppt-<topik>.md`) dari materi utama dan arahan pembelajaran.
    - Dilengkapi katalog visual resmi Ioda (`references/katalog-visual-materi-ioda.md`) dan contoh struktur brief (`examples/contoh-brief-ppt.md`).
-3. **`assets/`**
+4. **`assets/`**
    - Logo resmi Ioda Academy (versi putih transparan untuk cover/Q&A dan versi berwarna untuk slide konten).
 
 ---
@@ -19,7 +25,10 @@ Paket skill resmi untuk menyusun materi pelatihan Ioda Academy di lingkungan Ope
 
 Pastikan [OpenCode](https://opencode.ai) sudah terpasang di komputer Anda.
 
-1. Unduh / *clone* repositori ini.
+1. Unduh / *clone* repositori ini:
+   ```bash
+   git clone https://github.com/rohmatramadhan/learning-materials.git
+   ```
 2. Buka PowerShell di folder repositori.
 3. Jalankan perintah instalasi:
    ```powershell
@@ -40,6 +49,8 @@ Pastikan [OpenCode](https://opencode.ai) sudah terpasang di komputer Anda.
 ├── README.md            # Dokumentasi paket
 └── opencode/
     └── skills/
+        ├── learning-materials-ioda-academy/
+        │   └── SKILL.md
         ├── panduan-menulis-dokumen/
         │   ├── SKILL.md
         │   └── references/
