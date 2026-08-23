@@ -10,6 +10,8 @@ Paket skill resmi untuk menyusun materi pelatihan Ioda Academy di lingkungan Ope
 2. **`penyusun-brief-ppt-ioda`**
    - Penyusun berkas arahan presentasi (`brief-ppt-<topik>.md`) dari materi utama dan arahan pembelajaran.
    - Dilengkapi katalog visual resmi Ioda (`references/katalog-visual-materi-ioda.md`) dan contoh struktur brief (`examples/contoh-brief-ppt.md`).
+3. **`assets/`**
+   - Logo resmi Ioda Academy (versi putih transparan untuk cover/Q&A dan versi berwarna untuk slide konten).
 
 ---
 
@@ -30,6 +32,9 @@ Pastikan [OpenCode](https://opencode.ai) sudah terpasang di komputer Anda.
 ## Struktur Berkas
 
 ```text
+├── assets/
+│   ├── logo putih.png   # Logo putih transparan (untuk Cover / Q&A)
+│   └── logo warna.png   # Logo warna resmi (untuk Header Slide Konten)
 ├── install.ps1          # Skrip pemasang otomatis Windows (backup & rollback)
 ├── manifest.json        # Manifes paket dan hash integritas SHA-256
 ├── README.md            # Dokumentasi paket
