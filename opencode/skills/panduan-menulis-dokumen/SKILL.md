@@ -753,7 +753,7 @@ Urut dari yang paling sering ditemukan.
 23. Pasangan setiap dan tiap, jika dan apabila, sudah konsisten?
 24. Rentang tanggal pakai tanda pisah pendek, bukan tanda hubung?
 25. Bilangan satu sampai sembilan sudah ditulis dengan huruf?
-26. Ada judul yang membicarakan tampilan atau kemasan, bukan isinya?
+26. Ada judul yang membicarakan tampilan atau kemasan, bukan isinya, atau berawalan frasa menggantung seperti "Yang membuat ..."?
 27. Ada kalimat metawacana di dalam isi?
 28. Kalimat pertama sudah memuat inti, bukan pengantar?
 29. Nomor sub-bagian berurutan?

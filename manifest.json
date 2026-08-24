@@ -14,13 +14,13 @@
                       "source":  "opencode/skills/panduan-menulis-dokumen/SKILL.md",
                       "target":  "skills/panduan-menulis-dokumen/SKILL.md",
                       "component":  "skill",
-                      "sha256":  "888342867818f4724a2f228c3c9c6bd403c08b1a512b9d936db2634b82b8b300"
+                      "sha256":  "e4a8478c93f26abfe114f0922fb3fb7e66a7c2bc2a675b54a5efbfad77d5a372"
                   },
                   {
                       "source":  "opencode/skills/panduan-menulis-dokumen/references/ejaan-dan-ragam.md",
                       "target":  "skills/panduan-menulis-dokumen/references/ejaan-dan-ragam.md",
                       "component":  "reference",
-                      "sha256":  "c5afb2c5c90e8965e3e1d771181d8be0841bb7aeb28fa06db129e821efeef74a"
+                      "sha256":  "01e19c4cbbd0bd97c74efd7166a0ded81b00155e1edfc12a59b49a8cdeb49f47"
                   },
                   {
                       "source":  "opencode/skills/penyusun-brief-ppt-ioda/SKILL.md",

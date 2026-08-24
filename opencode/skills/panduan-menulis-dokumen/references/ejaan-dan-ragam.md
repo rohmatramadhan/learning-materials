@@ -2,7 +2,7 @@
 
 Berkas ini dibaca saat menjalankan Bagian 4 SKILL.md, yaitu lintasan verifikasi setelah draf selesai. Tidak perlu dibaca saat menulis draf.
 
-Kedua tabel di sini contoh, bukan daftar tertutup. Kata yang tidak ada di sini dan ejaannya diragukan tetap dicek ke `kbbi.kemdikbud.go.id`.
+Kedua tabel di sini contoh, bukan daftar tertutup. Kata yang tidak ada di sini dan ejaannya diragukan tetap dicek mengikuti prosedur Bagian 4 SKILL.md, yaitu ke `kbbi.web.id/<kata>` terlebih dahulu.
 
 ---
 
