@@ -52,8 +52,9 @@ Riset **wajib** mengakses internet secara live menggunakan urutan alat berikut. 
 | 2 | `webfetch` (bawaan OpenCode) | Mengambil dan membaca isi URL menjadi teks bersih. | Gratis |
 | 3 | `curl` via terminal | Memvalidasi status tautan (HTTP 200) dan mengunduh berkas. | Gratis |
 | 4 | API publik gratis (Crossref, arXiv, npm/PyPI registry) | Memverifikasi jurnal ilmiah, DOI, dan versi perangkat lunak. | Gratis |
-| 5 | `https://kbbi.web.id/<kata>` | Verifikasi status kata KBBI per kata. Contoh: `https://kbbi.web.id/makalah`. | Gratis |
-| 6 | `https://ejaan.kemendikdasmen.go.id/` | Verifikasi kaidah EYD Edisi V. | Gratis |
+| 5 | API OpenAlex (`api.openalex.org`) dan Unpaywall (`api.unpaywall.org/v2/<doi>`) | Memperdalam literatur ilmiah: metadata dan sitasi dicari lewat OpenAlex; Unpaywall dipakai untuk menemukan versi *open access* resmi dari sebuah DOI agar tautan naskah legal dan stabil. | Gratis tanpa kunci |
+| 6 | `https://kbbi.web.id/<kata>` | Verifikasi status kata KBBI per kata. Contoh: `https://kbbi.web.id/makalah`. | Gratis |
+| 7 | `https://ejaan.kemendikdasmen.go.id/` | Verifikasi kaidah EYD Edisi V. | Gratis |
 
 Aturan penggunaan:
 1. **Wajib mulai pencarian** dengan `9router-web-search`. Jika skill ini tidak merespons, lanjutkan pencarian melalui mesin telusur yang dapat dibuka `webfetch`, lalu laporkan penyimpangan alat pada bagian catatan riset.
