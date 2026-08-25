@@ -18,7 +18,7 @@ Tahap 1: learning-brief.md    (Menangkap kebutuhan & profil peserta)
    ↓
 Tahap 2: riset-<topik>.md     (Riset bukti kasus nyata 2 lapis & batas klaim)
    ↓
-Tahap 3: materi-<topik>.md    (Menulis modul naratif gaya buku mandiri, dua babak)
+Tahap 3: materi-<topik>.md    (Kerangka bab → review → modul naratif dua babak)
    ↓
 Tahap 4: brief-ppt-<topik>.md (Menurunkan naskah materi menjadi arahan slide)
 ```
@@ -108,7 +108,18 @@ Tiap konsep dijelaskan tuntas dengan pola **apa → cara kerja → contoh → ke
 - Sesi *online* (3 jam) memakai **satu babak** dengan satu siklus penuh.
 - Pemetaan isi setiap babak mengikuti rundown per menit pada lesson plan (Babak Pagi = blok pembuka/recap dan pemaparan/demo; Babak Siang = blok *hands-on* dan refleksi/tanya jawab). Setiap tahapan diberi judul sesuai aktivitasnya, misal "Mencoba: memecah fitur menjadi daftar *task*".
 
-### 4.4 Aturan utama
+### 4.4 Gerbang kerangka materi
+
+Sebelum menulis naskah penuh, susun dulu **`kerangka-materi-<topik>.md`** sebagai peta bab yang direview pemilik materi. Naskah penuh hanya ditulis setelah kerangka **disetujui**. Isi kerangka:
+
+1. **Prinsip penulisan** — hasil akhir sudah tetap, modul memberi jalan ke sana; tiap konsep dibuka dari dasar; alur Melihat → Mencoba → Merefleksikan → Mencoba Lagi per babak; satu tokoh ilustrasi berulang; format buku; modul jadi bekal brief PPT.
+2. **Pemetaan ke rundown lesson plan** — tabel yang menautkan tiap bagian modul ke blok dan rentang menit pada lesson plan.
+3. **Struktur satu bab** — tiap bab mengikuti urutan: pembuka/cerita → tujuan bab → isi naratif → contoh → latihan/cek pemahaman → ringkasan.
+4. **Daftar bab per babak** — tiap bab menyebut: tujuan, dasar yang dibuka (urutan prasyarat), isi, contoh, dan cek pemahaman.
+5. **Bagian penutup** — glosarium (daftar istilah yang wajib dijelaskan tuntas), kunci jawaban latihan, dan tabel sumber riset.
+6. **Pertanyaan terbuka untuk pemilik materi** — jumlah bab, data versi/tangkapan layar yang belum tersedia, dan izin kutipan bila memakai kutipan langsung.
+
+### 4.5 Aturan utama
 
 > **Aturan Utama:**
 > - Modul **bebas dari arahan visual** (tidak memuat nomor slide, warna hex, atau layout kotak).
