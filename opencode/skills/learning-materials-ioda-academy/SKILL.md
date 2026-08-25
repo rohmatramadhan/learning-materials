@@ -98,6 +98,8 @@ Materi utama adalah **modul naratif utuh bergaya buku mandiri**: dibaca peserta 
 
 Tiap konsep dijelaskan tuntas dengan pola **apa → cara kerja → contoh → kenapa penting → cara memakai atau menghindari**. Konsep tidak boleh hanya disebut dalam satu poin; setiap konsep wajib memuat contoh konkret yang bisa dibayangkan peserta. Naskah mengalir naratif seperti bab buku, bukan daftar poin dan rujukan. Contoh boleh memakai tokoh dan bisnis fiktif berulang (misal peserta "Dina" dan bisnis "Dapur Nia") sebagai benang merah, seperti buku pelajaran memakai tokoh tetap.
 
+**Alur studi kasus sebagai tulang punggung:** modul adalah **satu narasi tunggal yang mengalir**, bukan kumpulan bab mandiri. Bab 1 membuka dengan studi kasus sebagai *hook* dan menetapkan tujuan keseluruhan modul. Seluruh teori yang dibedah di bab berikutnya **diturunkan dari studi kasus itu**. Bab 2 dan seterusnya **tidak membuka hook atau tujuan baru**: tiap bab melanjutkan langsung dari akhir bab sebelumnya, membedah bagian studi kasus yang menuntut teori berikutnya. Tujuan tiap bab tidak diulang-ulang; cukup dinyatakan sekali di Bab 1.
+
 ### 4.2 Prinsip buka dari dasar
 
 `learning-brief.md` dan lesson plan adalah **hasil akhir** (target kompetensi). Modul ini adalah **jalan menuju hasil akhir**. Jika target menyebut istilah lanjutan, modul membuka dari fondasinya lebih dulu sebelum sampai ke target. Contoh: target "membaca *diff*" → modul menjelaskan lebih dulu apa itu Git, repositori, *commit*, *push*, baru *diff* dan cara membacanya. Target "menyusun *prompt* yang baik" → modul menjelaskan lebih dulu apa itu AI dan model bahasa, baru pola *prompt*.
@@ -112,10 +114,10 @@ Tiap konsep dijelaskan tuntas dengan pola **apa → cara kerja → contoh → ke
 
 Sebelum menulis naskah penuh, susun dulu **`kerangka-materi-<topik>.md`** sebagai peta bab yang direview pemilik materi. Naskah penuh hanya ditulis setelah kerangka **disetujui**. Isi kerangka:
 
-1. **Prinsip penulisan** — hasil akhir sudah tetap, modul memberi jalan ke sana; tiap konsep dibuka dari dasar; alur Melihat → Mencoba → Merefleksikan → Mencoba Lagi per babak; satu tokoh ilustrasi berulang; format buku; modul jadi bekal brief PPT.
+1. **Prinsip penulisan** — hasil akhir sudah tetap, modul memberi jalan ke sana; tiap konsep dibuka dari dasar; **satu narasi tunggal**: studi kasus sebagai *hook* di Bab 1, bab berikutnya turunan langsung tanpa hook atau tujuan baru; alur Melihat → Mencoba → Merefleksikan → Mencoba Lagi per babak; satu tokoh ilustrasi berulang; format buku; modul jadi bekal brief PPT.
 2. **Pemetaan ke rundown lesson plan** — tabel yang menautkan tiap bagian modul ke blok dan rentang menit pada lesson plan.
-3. **Struktur satu bab** — tiap bab mengikuti urutan: pembuka/cerita → tujuan bab → isi naratif → contoh → latihan/cek pemahaman → ringkasan.
-4. **Daftar bab per babak** — tiap bab menyebut: tujuan, dasar yang dibuka (urutan prasyarat), isi, contoh, dan cek pemahaman.
+3. **Struktur bab** — Bab 1 memuat studi kasus sebagai *hook*, tujuan keseluruhan modul, dan awal narasi. Bab 2 dan seterusnya **mengalir langsung** dari akhir bab sebelumnya: isi naratif lanjutan → contoh turunan studi kasus → latihan/cek pemahaman → ringkasan, tanpa pembuka atau tujuan baru.
+4. **Daftar bab per babak** — Bab 1 menyebut studi kasus, *hook*, dan tujuan modul; bab berikutnya menyebut konsep yang diturunkan dari studi kasus, dasar yang dibuka (urutan prasyarat), isi, contoh turunan, dan cek pemahaman.
 5. **Bagian penutup** — glosarium (daftar istilah yang wajib dijelaskan tuntas), kunci jawaban latihan, dan tabel sumber riset.
 6. **Pertanyaan terbuka untuk pemilik materi** — jumlah bab, data versi/tangkapan layar yang belum tersedia, dan izin kutipan bila memakai kutipan langsung.
 
