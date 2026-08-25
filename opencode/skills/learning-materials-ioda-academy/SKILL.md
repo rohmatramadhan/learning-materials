@@ -143,7 +143,24 @@ Ringkasan ini wajib dipenuhi di tiap bab dan diperiksa ulang saat audit. Detail 
 
 ### 4.7 Audit bahasa sebagai bukti
 
-Setelah seluruh bab selesai, `materi-<topik>.md` **wajib ditutup dengan bagian `Audit bahasa`** berupa tabel: tiap kategori aturan di Bagian 4.6 (ditambah ejaan KBBI/EYD) memuat tiga kolom — **temuan nyata** (kutipan asli dari naskah), **perbaikan yang diterapkan** (kutipan setelah diperbaiki), dan **status**. Setiap butir wajib berisi contoh kutipan dari naskah; pernyataan "sudah lolos" tanpa kutipan tidak dihitung sebagai bukti. Tabel audit ini direview pemilik materi bersama kerangka dan modul.
+Setelah seluruh bab selesai, `materi-<topik>.md` **wajib ditutup dengan bagian `Audit bahasa`** berupa tabel: tiap kategori wajib memuat tiga kolom — **temuan nyata** (kutipan asli dari naskah), **perbaikan yang diterapkan** (kutipan setelah diperbaiki), dan **status**. Pernyataan "sudah lolos" tanpa kutipan tidak dihitung sebagai bukti. Tabel audit ini direview pemilik materi bersama kerangka dan modul.
+
+**Seluruh kategori berikut wajib dicek dan dimasukkan ke tabel — tidak boleh di-skip:**
+
+| Kategori | Aturan | Pola yang wajib dicari |
+| :--- | :--- | :--- |
+| Jenis kalimat | 2.1 | Fragment ("Baris demi baris, dari nol, sampai...") → digabung jadi kalimat deskriptif utuh |
+| Redundansi | 2.3 | Gagasan diulang ("Keterampilan yang dibangun... Keterampilan yang dibangun") → cukup satu |
+| Pelaku jelas | 2.5 | "menyerahkan seluruh kendali" — pelakunya siapa → perjelas |
+| Metawacana | 2.10 | "Pertanyaan itu dijawab di bab ini", "akan dibahas" → hapus |
+| Tanpa sisipan | 2.11 | Aposisi ("Simon Willison, penulis...") → dipisah jadi dua kalimat |
+| Pola buatan | 2.12 | "bukan X, melainkan Y" → pernyataan langsung |
+| Ragam cakapan | 3.3 | "kalau"→jika, "kenapa"→mengapa, termasuk di subjudul, latihan, dan kunci jawaban |
+| Konsistensi pasangan | 3.7 | Campur "setiap/tiap" → seragam memakai satu |
+| Istilah asing konsisten | 4.7 | "programmer" tegak sedangkan "web programmer" miring → seragamkan (dimiringkan) |
+| Kiasan dan hiperbola | 3.1 | "kelas dunia", "revolusioner", "gerbang masa depan" → fakta terukur |
+| Judul | 5.1 | Judul menggantung "Yang ...", judul kemasan ("3 langkah", "dalam 1 halaman") → ganti |
+| KBBI dan EYD | 4.2 | Kata tak ditemukan di KBBI → bentuk asli Inggris + miring; kaidah dicek ke EYD |
 
 ---
 
