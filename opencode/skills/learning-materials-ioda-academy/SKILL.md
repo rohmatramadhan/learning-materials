@@ -18,7 +18,7 @@ Tahap 1: learning-brief.md    (Menangkap kebutuhan & profil peserta)
    ↓
 Tahap 2: riset-<topik>.md     (Riset bukti kasus nyata 2 lapis & batas klaim)
    ↓
-Tahap 3: materi-<topik>.md    (Menulis naskah naratif materi utama 10 fungsi)
+Tahap 3: materi-<topik>.md    (Menulis modul naratif gaya buku mandiri, dua babak)
    ↓
 Tahap 4: brief-ppt-<topik>.md (Menurunkan naskah materi menjadi arahan slide)
 ```
@@ -68,9 +68,11 @@ Aturan penggunaan:
 Riset dilakukan secara terarah menggunakan pola **Dua Lapis Kasus**:
 1. **Kasus Nyata (Pemantik):**
    - Kejadian nyata yang terverifikasi (ada nama pelapor, tahun, URL resmi aktif).
+   - Arahkan ke pola **kesalahan → pelajaran**: tampilkan satu kesalahan nyata yang diakui pelakunya atau diulas sumber kredibel, lalu petik pelajarannya sebagai *hook* pembuka sesi.
    - Berfungsi sebagai pemantik rasa ingin tahu. Jangan merekonstruksi domain rumitnya.
 2. **Skenario Kerja Sederhana (Kasus Utama):**
    - Skenario terisolasi yang dekat dengan dunia kerja peserta.
+   - Skenario sengaja meniru jawaban atas kesalahan pada kasus nyata, agar isu pembuka dijawab lewat praktik.
    - Wajib dinyatakan sebagai **`Ilustrasi pembelajaran`** (bukan kejadian nyata).
 3. **Batas Klaim & Sumber Kredibel:**
    - Gunakan dokumentasi resmi (*official docs*), artikel ilmiah, atau berita kredibel.
@@ -78,9 +80,9 @@ Riset dilakukan secara terarah menggunakan pola **Dua Lapis Kasus**:
 
 ---
 
-## 4. Tahap 3: Naskah Materi Utama (`materi-<topik>.md`)
+## 4. Tahap 3: Modul Materi Utama (`materi-<topik>.md`)
 
-Materi utama adalah **naskah internal lengkap dan siap dibaca** yang mengintegrasikan 10 fungsi konten:
+Materi utama adalah **modul naratif utuh bergaya buku mandiri**: dibaca peserta tanpa kehadiran mentor, dan dijadikan rujukan saat menyusun brief PPT di Tahap 4. Modul mengintegrasikan 10 fungsi konten:
 1. Menetapkan tujuan dan batas materi.
 2. Memakai kasus nyata sebagai pemantik jika relevan.
 3. Menetapkan skenario utama ilustratif.
@@ -92,9 +94,26 @@ Materi utama adalah **naskah internal lengkap dan siap dibaca** yang mengintegra
 9. Menempatkan materi mendalam sebagai **pengayaan opsional**.
 10. Mencantumkan **`Sumber riset`** pada setiap klaim faktual.
 
+### 4.1 Standar kedalaman naskah
+
+Tiap konsep dijelaskan tuntas dengan pola **apa → cara kerja → contoh → kenapa penting → cara memakai atau menghindari**. Konsep tidak boleh hanya disebut dalam satu poin; setiap konsep wajib memuat contoh konkret yang bisa dibayangkan peserta. Naskah mengalir naratif seperti bab buku, bukan daftar poin dan rujukan. Contoh boleh memakai tokoh dan bisnis fiktif berulang (misal peserta "Dina" dan bisnis "Dapur Nia") sebagai benang merah, seperti buku pelajaran memakai tokoh tetap.
+
+### 4.2 Prinsip buka dari dasar
+
+`learning-brief.md` dan lesson plan adalah **hasil akhir** (target kompetensi). Modul ini adalah **jalan menuju hasil akhir**. Jika target menyebut istilah lanjutan, modul membuka dari fondasinya lebih dulu sebelum sampai ke target. Contoh: target "membaca *diff*" → modul menjelaskan lebih dulu apa itu Git, repositori, *commit*, *push*, baru *diff* dan cara membacanya. Target "menyusun *prompt* yang baik" → modul menjelaskan lebih dulu apa itu AI dan model bahasa, baru pola *prompt*.
+
+### 4.3 Struktur dua babak
+
+- Sesi tatap muka (6 jam efektif) dibagi **dua babak**: Babak Pagi (3 jam) dan Babak Siang (3 jam), dipisahkan ISOMA. Setiap babak memuat **satu siklus penuh Melihat → Mencoba → Merefleksikan → Mencoba Lagi** dengan aktivitasnya masing-masing.
+- Sesi *online* (3 jam) memakai **satu babak** dengan satu siklus penuh.
+- Pemetaan isi setiap babak mengikuti rundown per menit pada lesson plan (Babak Pagi = blok pembuka/recap dan pemaparan/demo; Babak Siang = blok *hands-on* dan refleksi/tanya jawab). Setiap tahapan diberi judul sesuai aktivitasnya, misal "Mencoba: memecah fitur menjadi daftar *task*".
+
+### 4.4 Aturan utama
+
 > **Aturan Utama:**
-> - Materi utama **bebas dari arahan visual** (tidak memuat nomor slide, warna hex, atau layout kotak).
+> - Modul **bebas dari arahan visual** (tidak memuat nomor slide, warna hex, atau layout kotak).
 > - Wajib diaudit dengan skill **`panduan-menulis-dokumen`** (ejaan baku, istilah asing *italic*, tanpa metawacana).
+> - **Kebijakan istilah teknis di KBBI edisi III:** istilah teknis yang tidak ditemukan di `kbbi.web.id` ditulis dalam bentuk aslinya (bahasa Inggris) dan dimiringkan, misalnya `*mindset*`, `*repository*`. Dilarang memakai transliterasi yang belum baku seperti "repositori"; gunakan `*repository*`.
 
 ---
 

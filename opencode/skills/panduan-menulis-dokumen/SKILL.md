@@ -547,6 +547,8 @@ Kata ditemukan berarti sudah diserap. Tulis tegak dengan ejaan persis seperti pa
 
 Kata tidak ditemukan berarti belum diserap. Tulis miring.
 
+Untuk istilah teknis yang tidak ditemukan, pakai bentuk aslinya (bahasa Inggris) dan miringkan; jangan memakai transliterasi yang belum baku. Contoh: tulis `*mindset*` bukan "minden" atau bentuk lain; tulis `*repository*` bukan "repositori". Transliterasi hanya boleh dipakai bila memang sudah masuk KBBI.
+
 Bentukan berimbuhan dicek terpisah dari kata dasarnya. Mentor ada di KBBI, sedangkan *mentoring* tidak. Praktik ada di KBBI, sedangkan *best practice* tidak.
 
 ### 4.5 Yang tidak perlu dicek

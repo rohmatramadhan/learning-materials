@@ -8,13 +8,13 @@
                       "source":  "opencode/skills/learning-materials-ioda-academy/SKILL.md",
                       "target":  "skills/learning-materials-ioda-academy/SKILL.md",
                       "component":  "skill",
-                      "sha256":  "fff9fcce3537edbe39092cb61ba46a1fe9b009c83530384248ed13f782daacee"
+                      "sha256":  "b25d22ec611aadf31463221b3e91d6ee95269e4af2d42715c0e34466f7e49138"
                   },
                   {
                       "source":  "opencode/skills/panduan-menulis-dokumen/SKILL.md",
                       "target":  "skills/panduan-menulis-dokumen/SKILL.md",
                       "component":  "skill",
-                      "sha256":  "e4a8478c93f26abfe114f0922fb3fb7e66a7c2bc2a675b54a5efbfad77d5a372"
+                      "sha256":  "224ae5626d903f23e8bfd175ffd66be7a584c598c5919efce99fd4cb3fa4d7b8"
                   },
                   {
                       "source":  "opencode/skills/panduan-menulis-dokumen/references/ejaan-dan-ragam.md",
