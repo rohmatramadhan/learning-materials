@@ -126,6 +126,25 @@ Sebelum menulis naskah penuh, susun dulu **`kerangka-materi-<topik>.md`** sebaga
 > - Wajib diaudit dengan skill **`panduan-menulis-dokumen`** (ejaan baku, istilah asing *italic*, tanpa metawacana).
 > - **Kebijakan istilah teknis di KBBI edisi III:** istilah teknis yang tidak ditemukan di `kbbi.web.id` ditulis dalam bentuk aslinya (bahasa Inggris) dan dimiringkan, misalnya `*mindset*`, `*repository*`. Dilarang memakai transliterasi yang belum baku seperti "repositori"; gunakan `*repository*`.
 
+### 4.6 Aturan inti bahasa yang paling sering dilanggar
+
+Ringkasan ini wajib dipenuhi di tiap bab dan diperiksa ulang saat audit. Detail lengkap ada di skill `panduan-menulis-dokumen`.
+
+1. **Jenis kalimat (2.1):** setiap kalimat hanya *instruksional* atau *deskripsi*. Dilarang kalimat berputar, menggantung, atau menyamarkan pelaku.
+2. **Tanpa metafora, kiasan, hiperbola (3.1):** dilarang "kelas dunia", "revolusioner", "gerbang masa depan". Tulis fakta terukur.
+3. **Tanpa jargon tanpa penjelasan (2.5):** istilah asing dimiringkan dan diberi definisi kerja saat pertama muncul; pembaca tidak boleh menebak.
+4. **Judul menyebut isi langsung (5.1):** dilarang judul menggantung "Yang ...", judul kemasan ("3 langkah", "dalam 1 halaman"), dan judul metaforis.
+5. **Hemat kata (2.2):** buang kata yang bisa dibuang tanpa mengubah makna.
+6. **Satu daftar satu bentuk (2.6):** semua butir dalam satu daftar memakai pola gramatikal sama, termasuk label kartu.
+7. **Tanpa metawacana (2.10):** dilarang "perlu diketahui", "pada bab ini akan dibahas".
+8. **Inti di kalimat pertama (2.7):** putusan lebih dulu, alasan menyusul.
+9. **Spesifik (2.8):** pakai angka; dilarang "banyak", "cukup", "sekitar".
+10. **Modalitas tegas (2.9):** tulis "wajib", "dapat", "tidak berhak" — bukan "diharapkan", "sebaiknya".
+
+### 4.7 Audit bahasa sebagai bukti
+
+Setelah seluruh bab selesai, `materi-<topik>.md` **wajib ditutup dengan bagian `Audit bahasa`** berupa tabel: tiap kategori aturan di Bagian 4.6 (ditambah ejaan KBBI/EYD) memuat tiga kolom — **temuan nyata** (kutipan asli dari naskah), **perbaikan yang diterapkan** (kutipan setelah diperbaiki), dan **status**. Setiap butir wajib berisi contoh kutipan dari naskah; pernyataan "sudah lolos" tanpa kutipan tidak dihitung sebagai bukti. Tabel audit ini direview pemilik materi bersama kerangka dan modul.
+
 ---
 
 ## 5. Tahap 4: Arahan Slide Presentasi (`brief-ppt-<topik>.md`)
