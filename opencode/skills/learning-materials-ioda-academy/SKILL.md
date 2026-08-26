@@ -78,6 +78,22 @@ Riset dilakukan secara terarah menggunakan pola **Dua Lapis Kasus**:
    - Gunakan dokumentasi resmi (*official docs*), artikel ilmiah, atau berita kredibel.
    - Catat keputusan relevansi: topik di luar fokus sesi ditunda.
 
+### 3.3 Sintesis Grounded Bergaya NotebookLM (Opsional)
+
+Dipakai ketika jumlah sumber lolos sudah banyak (lima atau lebih) dan riset memerlukan sintesis lintas dokumen, seperti yang dilakukan Gemini Notebook: pertanyaan dijawab hanya dari potongan sumber yang relevan, tiap klaim menunjuk sumber aslinya.
+
+Langkah:
+1. Kumpulkan sumber yang **sudah lolos verifikasi dua arah** (`webfetch` baca + `curl` HTTP 200).
+2. Baca isi tiap sumber dan potong menjadi *chunk* sekitar 800 karakter.
+3. *Embed* semua *chunk* memakai skill **`9router-embeddings`** (`POST $NINEROUTER_URL/v1/embeddings`, pilih model dari `$NINEROUTER_URL/v1/models/embedding`).
+4. *Embed* pertanyaan riset dengan model yang sama, lalu ambil lima sampai sepuluh *chunk* dengan kemiripan tertinggi.
+5. Minta model *chat* 9Router (`$NINEROUTER_URL/v1/chat/completions`) meringkas jawaban **hanya** dari *chunk* itu, dengan tautan sumber pada tiap klaim.
+
+Aturan:
+- RAG **tidak menggantikan verifikasi dua arah**; sumber tetap wajib lolos sebelum di-*embed*.
+- Hasil sintesis dicatat di `riset-<topik>.md` sebagai `[SINTESIS RAG]`, bukan klaim primer. Klaim faktual tetap menunjuk sumber asli yang lolos.
+- Jika `NINEROUTER_URL` atau `NINEROUTER_KEY` tidak tersedia, lewati langkah ini tanpa menghentikan alur. Langkah ini opsional dan bukan syarat.
+
 ---
 
 ## 4. Tahap 3: Modul Materi Utama (`materi-<topik>.md`)
