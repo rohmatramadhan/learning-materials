@@ -1,6 +1,6 @@
 ---
 name: learning-materials-ioda-academy
-description: Sistem orkestrasi AI resmi Ioda Academy untuk menyusun materi pelatihan dari awal hingga akhir (learning-brief -> riset kasus -> materi utama naratif -> brief slide PPT). Wajib gunakan skill ini ketika pengguna ingin membuat, merancang, meriset, atau menyusun materi pelatihan, silabus, atau bahan ajar baru.
+description: Use when menyusun, merancang, meriset, atau memperbarui materi pelatihan, silabus, bahan ajar, kerangka materi, atau brief slide presentasi Ioda Academy.
 ---
 
 # Learning Materials Ioda Academy
@@ -14,188 +14,207 @@ Skill induk ini memandu dan mengorkestrasi penyusunan materi pelatihan di lingku
 Setiap pembuatan materi pelatihan **wajib** mengikuti urutan 4 tahap ini tanpa melompat:
 
 ```text
-Tahap 1: learning-brief.md    (Menangkap kebutuhan & profil peserta)
+Tahap 1: learning-brief.md    (Menangkap kebutuhan dan profil peserta)
    ↓
-Tahap 2: riset-<topik>.md     (Riset bukti kasus nyata 2 lapis & batas klaim)
+Tahap 2: riset-<topik>.md      (Riset bukti kasus nyata dan batas klaim)
    ↓
-Tahap 3: materi-<topik>.md    (Kerangka bab → review → modul naratif dua babak)
+Tahap 3: kerangka-materi-<topik>.md (Kerangka materi dan daftar slide)
    ↓
-Tahap 4: brief-ppt-<topik>.md (Menurunkan naskah materi menjadi arahan slide)
+Tahap 4: brief-ppt-<topik>.md (Menurunkan kerangka menjadi arahan slide)
 ```
 
-Setiap tahap memiliki **Gerbang Mutu**: tahap hilir hanya boleh dikerjakan setelah tahap hulu berstatus **`Lolos`** atau **`Ditandai`**.
+Setiap tahap memiliki **Gerbang Mutu**. Tahap berikutnya hanya boleh dikerjakan setelah tahap sebelumnya berstatus **`Lolos`** atau **`Ditandai`**.
 
 ---
 
 ## 2. Tahap 1: Arahan Pembelajaran (`learning-brief.md`)
 
-Menangkap informasi kunci sebelum riset dimulai:
-1. **Program & Topik:** Nama program dan nomor sesi pertemuan.
-2. **Audiens & Tingkat Peserta:** Pengetahuan awal yang diasumsikan.
-3. **Durasi Belajar:** Estimasi waktu sesi efektif.
-4. **Tujuan Pembelajaran:** Kompetensi spesifik yang harus dicapai peserta.
-5. **Cakupan Inti:** Batasan topik yang relevan.
+Sebelum riset, catat:
 
-> **Aturan Utama:** Jangan mengarang data. Jika nomor sesi, prasyarat, atau izin catatan pembicara belum ada, tandai dengan `[BUTUH DATA: keterangan]`.
+1. Program dan topik.
+2. Audiens dan tingkat peserta.
+3. Durasi belajar.
+4. Tujuan pembelajaran.
+5. Cakupan inti.
+
+Jangan mengarang data. Jika nomor sesi, prasyarat, atau izin catatan pembicara belum tersedia, gunakan `[BUTUH DATA: keterangan]`.
 
 ---
 
-## 3. Tahap 2: Riset Kasus & Bukti (`riset-<topik>.md`)
+## 3. Tahap 2: Riset Kasus dan Bukti (`riset-<topik>.md`)
 
 ### 3.1 Rantai Alat Riset Wajib
 
-Riset **wajib** mengakses internet secara live menggunakan urutan alat berikut. Dilarang menulis `riset-<topik>.md` hanya dari pengetahuan internal tanpa bukti daring yang divalidasi pada hari riset:
+Riset wajib mengakses internet secara langsung menggunakan urutan berikut:
 
-| Urutan | Alat | Fungsi | Biaya |
-|---|---|---|---|
-| 1 | `9router-web-search` (skill) | Mencari kandidat kasus, sumber resmi, dan referensi. | Gratis |
-| 2 | `webfetch` (bawaan OpenCode) | Mengambil dan membaca isi URL menjadi teks bersih. | Gratis |
-| 3 | `curl` via terminal | Memvalidasi status tautan (HTTP 200) dan mengunduh berkas. | Gratis |
-| 4 | API publik gratis (Crossref, arXiv, npm/PyPI registry) | Memverifikasi jurnal ilmiah, DOI, dan versi perangkat lunak. | Gratis |
-| 5 | API OpenAlex (`api.openalex.org`) dan Unpaywall (`api.unpaywall.org/v2/<doi>`) | Memperdalam literatur ilmiah: metadata dan sitasi dicari lewat OpenAlex; Unpaywall dipakai untuk menemukan versi *open access* resmi dari sebuah DOI agar tautan naskah legal dan stabil. | Gratis tanpa kunci |
-| 6 | `https://kbbi.web.id/<kata>` | Verifikasi status kata KBBI per kata. Contoh: `https://kbbi.web.id/makalah`. | Gratis |
-| 7 | `https://ejaan.kemendikdasmen.go.id/` | Verifikasi kaidah EYD Edisi V. | Gratis |
+1. `9router-web-search` untuk mencari kandidat kasus dan sumber.
+2. `webfetch` untuk membaca isi URL.
+3. `curl` untuk memvalidasi status tautan dan mengunduh berkas.
+4. API publik Crossref, arXiv, npm, atau PyPI jika relevan.
+5. OpenAlex dan Unpaywall untuk literatur ilmiah.
+6. `kbbi.web.id` untuk status kata.
+7. `ejaan.kemendikdasmen.go.id` untuk kaidah EYD.
 
-Aturan penggunaan:
-1. **Wajib mulai pencarian** dengan `9router-web-search`. Jika skill ini tidak merespons, lanjutkan pencarian melalui mesin telusur yang dapat dibuka `webfetch`, lalu laporkan penyimpangan alat pada bagian catatan riset.
-2. **Wajib verifikasi dua arah:** setiap klaim faktual wajib dibaca isi halamannya (`webfetch`) DAN status tautannya dicek (`curl` menghasilkan HTTP 200).
-3. **Wajib verifikasi bahasa:** kata baku dicek ke `kbbi.web.id/<kata>` dan kaidah penulisan ke `ejaan.kemendikdasmen.go.id`. Situs KBBI resmi `kbbi.kemendikdasmen.go.id` memerlukan masuk log; hanya dipakai jika pengguna memberi akun pada sesi berjalan, tanpa menyimpan kredensial ke berkas.
-4. Jika seluruh alat daring gagal (offline), jangan mengarang sumber. Hentikan tahap riset dan tandai `[BUTUH DATA: verifikasi sumber <klaim>]`.
-5. Alat opsional lain (MCP Firecrawl, Context7, Perplexity API) hanya dipakai jika sudah terpasang; keberadaannya bukan syarat alur.
+Setiap klaim faktual wajib dibaca melalui `webfetch` dan tautannya wajib divalidasi dengan `curl` hingga menghasilkan HTTP 200. Jika alat daring gagal, jangan mengarang sumber. Tandai klaim dengan `[BUTUH DATA: verifikasi sumber <klaim>]`.
 
 ### 3.2 Pola Dua Lapis Kasus
 
-Riset dilakukan secara terarah menggunakan pola **Dua Lapis Kasus**:
-1. **Kasus Nyata (Pemantik):**
-   - Kejadian nyata yang terverifikasi (ada nama pelapor, tahun, URL resmi aktif).
-   - Arahkan ke pola **kesalahan → pelajaran**: tampilkan satu kesalahan nyata yang diakui pelakunya atau diulas sumber kredibel, lalu petik pelajarannya sebagai *hook* pembuka sesi.
-   - Berfungsi sebagai pemantik rasa ingin tahu. Jangan merekonstruksi domain rumitnya.
-2. **Skenario Kerja Sederhana (Kasus Utama):**
-   - Skenario terisolasi yang dekat dengan dunia kerja peserta.
-   - Skenario sengaja meniru jawaban atas kesalahan pada kasus nyata, agar isu pembuka dijawab lewat praktik.
-   - Wajib dinyatakan sebagai **`Ilustrasi pembelajaran`** (bukan kejadian nyata).
-3. **Batas Klaim & Sumber Kredibel:**
-   - Gunakan dokumentasi resmi (*official docs*), artikel ilmiah, atau berita kredibel.
-   - Catat keputusan relevansi: topik di luar fokus sesi ditunda.
+1. **Kasus nyata:** kejadian terverifikasi dengan pelapor, tahun, dan sumber aktif.
+2. **Ilustrasi pembelajaran:** skenario kerja sederhana yang dinyatakan sebagai ilustrasi, bukan kejadian nyata.
+3. **Batas klaim:** setiap klaim menunjuk sumber kredibel dan topik di luar fokus sesi ditunda.
 
-### 3.3 Sintesis Grounded Bergaya NotebookLM (Opsional)
+### 3.3 Sintesis RAG Opsional
 
-Dipakai ketika jumlah sumber lolos sudah banyak (lima atau lebih) dan riset memerlukan sintesis lintas dokumen, seperti yang dilakukan Gemini Notebook: pertanyaan dijawab hanya dari potongan sumber yang relevan, tiap klaim menunjuk sumber aslinya.
-
-Langkah:
-1. Kumpulkan sumber yang **sudah lolos verifikasi dua arah** (`webfetch` baca + `curl` HTTP 200).
-2. Baca isi tiap sumber dan potong menjadi *chunk* sekitar 800 karakter.
-3. *Embed* semua *chunk* memakai skill **`9router-embeddings`** (`POST $NINEROUTER_URL/v1/embeddings`, pilih model dari `$NINEROUTER_URL/v1/models/embedding`).
-4. *Embed* pertanyaan riset dengan model yang sama, lalu ambil lima sampai sepuluh *chunk* dengan kemiripan tertinggi.
-5. Minta model *chat* 9Router (`$NINEROUTER_URL/v1/chat/completions`) meringkas jawaban **hanya** dari *chunk* itu, dengan tautan sumber pada tiap klaim.
-
-Aturan:
-- RAG **tidak menggantikan verifikasi dua arah**; sumber tetap wajib lolos sebelum di-*embed*.
-- Hasil sintesis dicatat di `riset-<topik>.md` sebagai `[SINTESIS RAG]`, bukan klaim primer. Klaim faktual tetap menunjuk sumber asli yang lolos.
-- Jika `NINEROUTER_URL` atau `NINEROUTER_KEY` tidak tersedia, lewati langkah ini tanpa menghentikan alur. Langkah ini opsional dan bukan syarat.
+Jika sumber lolos berjumlah minimal lima dan membutuhkan sintesis lintas dokumen, gunakan `9router-embeddings` dan model *chat* 9Router. Verifikasi dua arah tetap wajib. Catat hasilnya sebagai `[SINTESIS RAG]`, bukan sebagai klaim primer.
 
 ---
 
-## 4. Tahap 3: Modul Materi Utama (`materi-<topik>.md`)
+## 4. Tahap 3: Kerangka Materi (`kerangka-materi-<topik>.md`)
 
-Materi utama adalah **modul naratif utuh bergaya buku mandiri**: dibaca peserta tanpa kehadiran mentor, dan dijadikan rujukan saat menyusun brief PPT di Tahap 4. Modul mengintegrasikan 10 fungsi konten:
-1. Menetapkan tujuan dan batas materi.
-2. Memakai kasus nyata sebagai pemantik jika relevan.
-3. Menetapkan skenario utama ilustratif.
-4. Menjabarkan konsep per subtopik secara sebab-akibat.
-5. Menjelaskan hubungan antarkonsep dan penerapannya.
-6. Menunjukkan celah atau kesalahan umum yang perlu diwaspadai.
-7. Menambahkan contoh transfer jika membantu.
-8. Menyediakan praktik mandiri dan kriteria pemeriksaan.
-9. Menempatkan materi mendalam sebagai **pengayaan opsional**.
-10. Mencantumkan **`Sumber riset`** pada setiap klaim faktual.
+Tahap 3 menghasilkan kerangka global yang menjadi *blueprint* materi dan slide. "Global" berarti formatnya dapat dipakai lintas program dan topik; isi, jumlah bagian, urutan, alokasi, dan keputusan pembelajaran tetap mengikuti dokumen acuan masing-masing. Kerangka ini bukan modul naratif, bukan naskah buku, dan bukan tempat memindahkan seluruh penjelasan tambahan. Isinya mengatur keputusan materi, hubungan dengan sumber acuan, alokasi waktu, struktur bagian, daftar slide, sumber, dan bahan pengayaan.
 
-### 4.1 Standar kedalaman naskah
+### 4.1 Gerbang Tahap 3
 
-Tiap konsep dijelaskan tuntas dengan pola **apa → cara kerja → contoh → kenapa penting → cara memakai atau menghindari**. Konsep tidak boleh hanya disebut dalam satu poin; setiap konsep wajib memuat contoh konkret yang bisa dibayangkan peserta. Naskah mengalir naratif seperti bab buku, bukan daftar poin dan rujukan. Contoh boleh memakai tokoh dan bisnis fiktif berulang (misal peserta "Dina" dan bisnis "Dapur Nia") sebagai benang merah, seperti buku pelajaran memakai tokoh tetap.
+1. Baca `learning-brief.md` dan *lesson plan* sampai selesai sebelum menyusun kerangka.
+2. Ambil tujuan, profil peserta, durasi, cakupan, dan keluaran dari `learning-brief.md`.
+3. Ambil urutan kegiatan, metode, aktivitas, dan alokasi waktu dari *lesson plan*.
+4. Jangan mengisi data yang belum tersedia. Gunakan `[BUTUH DATA: keterangan]`.
+5. Review kerangka bersama pemilik materi sebelum menurunkannya menjadi `brief-ppt-<topik>.md`.
+6. Status tahap hulu harus `Lolos` atau `Ditandai` sebelum Tahap 3 dimulai.
 
-**Alur studi kasus sebagai tulang punggung:** modul adalah **satu narasi tunggal yang mengalir**, bukan kumpulan bab mandiri. Bab 1 membuka dengan studi kasus sebagai *hook* dan menetapkan tujuan keseluruhan modul. Seluruh teori yang dibedah di bab berikutnya **diturunkan dari studi kasus itu**. Bab 2 dan seterusnya **tidak membuka hook atau tujuan baru**: tiap bab melanjutkan langsung dari akhir bab sebelumnya, membedah bagian studi kasus yang menuntut teori berikutnya. Tujuan tiap bab tidak diulang-ulang; cukup dinyatakan sekali di Bab 1.
+### 4.2 Format Kerangka Wajib
 
-### 4.2 Prinsip buka dari dasar
+Gunakan urutan bagian berikut. Jumlah bagian atau topik di dalam Bagian 4 menyesuaikan tujuan pembelajaran dan *lesson plan*.
 
-`learning-brief.md` dan lesson plan adalah **hasil akhir** (target kompetensi). Modul ini adalah **jalan menuju hasil akhir**. Jika target menyebut istilah lanjutan, modul membuka dari fondasinya lebih dulu sebelum sampai ke target. Contoh: target "membaca *diff*" → modul menjelaskan lebih dulu apa itu Git, repositori, *commit*, *push*, baru *diff* dan cara membacanya. Target "menyusun *prompt* yang baik" → modul menjelaskan lebih dulu apa itu AI dan model bahasa, baru pola *prompt*.
+```text
+# Kerangka Materi [Topik]
+## 1. Identitas dan Keputusan Materi
+### 1.1 Arah Materi
+### 1.2 Hubungan dengan Learning Brief
+### 1.3 Hubungan dengan Lesson Plan
+### 1.4 Batas Materi
+## 2. Prinsip Penulisan dan Struktur
+### 2.1 Prinsip Format
+### 2.2 Ketentuan Judul
+### 2.3 Ketentuan Bahasa
+### 2.4 Ketentuan Kalimat
+### 2.5 Ketentuan Istilah Teknis
+### 2.6 Ketentuan Nomor Slide
+## 3. Pemetaan ke Rundown
+### 3.1 Rundown Pembelajaran
+### 3.2 Pemetaan Tujuan ke Bagian Materi
+### 3.3 Perbandingan Alokasi
+### 3.4 Penyimpangan dari Lesson Plan
+### 3.5 Pembagian Babak atau Sesi
+## 4. Struktur Materi dan Daftar Slide
+### 4.1 Aturan Struktur Bagian
+### 4.2 Bagian [Nomor]. [Judul Bagian]
+## 5. Bagian Penutup Materi
+### 5.1 Glosarium
+### 5.2 Sumber Riset
+### 5.3 Pertanyaan Terbuka
+## 6. Checklist Kerangka
+## 7. Lecture Notes
+```
 
-### 4.3 Struktur dua babak
+### 4.3 Identitas dan Keputusan Materi
 
-- Sesi tatap muka (6 jam efektif) dibagi **dua babak**: Babak Pagi (3 jam) dan Babak Siang (3 jam), dipisahkan ISOMA. Setiap babak memuat **satu siklus penuh Melihat → Mencoba → Merefleksikan → Mencoba Lagi** dengan aktivitasnya masing-masing.
-- Sesi *online* (3 jam) memakai **satu babak** dengan satu siklus penuh.
-- Pemetaan isi setiap babak mengikuti rundown per menit pada lesson plan (Babak Pagi = blok pembuka/recap dan pemaparan/demo; Babak Siang = blok *hands-on* dan refleksi/tanya jawab). Setiap tahapan diberi judul sesuai aktivitasnya, misal "Mencoba: memecah fitur menjadi daftar *task*".
+Gunakan tabel `Aspek | Isi` dengan baris Program, Sesi, Topik, Format, Durasi, Waktu, Skenario, Dokumen acuan, Layanan atau alat, Keluaran, Batas materi, dan Jumlah slide. Bagian `Arah Materi`, `Hubungan dengan Learning Brief`, `Hubungan dengan Lesson Plan`, dan `Batas Materi` menjelaskan keputusan tersebut tanpa membuat tujuan baru.
 
-### 4.4 Gerbang kerangka materi
+### 4.4 Prinsip Penulisan dan Struktur
 
-Sebelum menulis naskah penuh, susun dulu **`kerangka-materi-<topik>.md`** sebagai peta bab yang direview pemilik materi. Naskah penuh hanya ditulis setelah kerangka **disetujui**. Isi kerangka:
+Prinsip format global:
 
-1. **Prinsip penulisan** — hasil akhir sudah tetap, modul memberi jalan ke sana; tiap konsep dibuka dari dasar; **satu narasi tunggal**: studi kasus sebagai *hook* di Bab 1, bab berikutnya turunan langsung tanpa hook atau tujuan baru; alur Melihat → Mencoba → Merefleksikan → Mencoba Lagi per babak; satu tokoh ilustrasi berulang; format buku; modul jadi bekal brief PPT.
-2. **Pemetaan ke rundown lesson plan** — tabel yang menautkan tiap bagian modul ke blok dan rentang menit pada lesson plan.
-3. **Struktur bab** — Bab 1 memuat studi kasus sebagai *hook*, tujuan keseluruhan modul, dan awal narasi. Bab 2 dan seterusnya **mengalir langsung** dari akhir bab sebelumnya: isi naratif lanjutan → contoh turunan studi kasus → latihan/cek pemahaman → ringkasan, tanpa pembuka atau tujuan baru.
-4. **Daftar bab per babak** — Bab 1 menyebut studi kasus, *hook*, dan tujuan modul; bab berikutnya menyebut konsep yang diturunkan dari studi kasus, dasar yang dibuka (urutan prasyarat), isi, contoh turunan, dan cek pemahaman.
-5. **Bagian penutup** — glosarium (daftar istilah yang wajib dijelaskan tuntas), kunci jawaban latihan, dan tabel sumber riset.
-6. **Pertanyaan terbuka untuk pemilik materi** — jumlah bab, data versi/tangkapan layar yang belum tersedia, dan izin kutipan bila memakai kutipan langsung.
+1. Satu subtopik menjadi satu slide atau satu unit materi yang jelas.
+2. Nomor slide disusun berurutan di dalam bagian atau topik.
+3. Struktur materi mengikuti tujuan pembelajaran, kebutuhan peserta, dan urutan kegiatan pada *lesson plan*.
+4. Setiap bagian memiliki tujuan, alokasi waktu, keluaran, dan daftar isi.
+5. Materi yang tidak dibahas dalam slide ditempatkan pada bagian `Lecture Notes`.
 
-### 4.5 Aturan utama
+Ketentuan judul, bahasa, dan kalimat **wajib mengikuti `panduan-menulis-dokumen`**. Terapkan ketentuan judul langsung, bahasa Indonesia formal, istilah asing yang konsisten, kalimat deskriptif atau instruksional, pelaku yang jelas, inti pada kalimat pertama, kalimat hemat, serta larangan metawacana, kiasan, hiperbola, dan data karangan.
 
-> **Aturan Utama:**
-> - Modul **bebas dari arahan visual** (tidak memuat nomor slide, warna hex, atau layout kotak).
-> - Wajib diaudit dengan skill **`panduan-menulis-dokumen`** (ejaan baku, istilah asing *italic*, tanpa metawacana).
-> - **Kebijakan istilah teknis di KBBI edisi III:** istilah teknis yang tidak ditemukan di `kbbi.web.id` ditulis dalam bentuk aslinya (bahasa Inggris) dan dimiringkan, misalnya `*mindset*`, `*repository*`. Dilarang memakai transliterasi yang belum baku seperti "repositori"; gunakan `*repository*`.
+Istilah teknis yang belum terserap ditulis dalam bentuk asli dan dimiringkan setelah diperiksa ke KBBI. Gunakan satu istilah yang sama untuk satu konsep. Nomor slide tidak harus sama dengan nomor akhir pada *deck*, tetapi harus berurutan dan seluruh rujukannya harus diperbarui jika berubah.
 
-### 4.6 Aturan inti bahasa yang paling sering dilanggar
+### 4.5 Pemetaan ke Rundown
 
-Ringkasan ini wajib dipenuhi di tiap bab dan diperiksa ulang saat audit. Detail lengkap ada di skill `panduan-menulis-dokumen`.
+Rundown wajib mengacu pada `learning-brief.md` dan *lesson plan*. Gunakan tabel berikut:
 
-1. **Jenis kalimat (2.1):** setiap kalimat hanya *instruksional* atau *deskripsi*. Dilarang kalimat berputar, menggantung, atau menyamarkan pelaku.
-2. **Tanpa metafora, kiasan, hiperbola (3.1):** dilarang "kelas dunia", "revolusioner", "gerbang masa depan". Tulis fakta terukur.
-3. **Tanpa jargon tanpa penjelasan (2.5):** istilah asing dimiringkan dan diberi definisi kerja saat pertama muncul; pembaca tidak boleh menebak.
-4. **Judul menyebut isi langsung (5.1):** dilarang judul menggantung "Yang ...", judul kemasan ("3 langkah", "dalam 1 halaman"), dan judul metaforis.
-5. **Hemat kata (2.2):** buang kata yang bisa dibuang tanpa mengubah makna.
-6. **Satu daftar satu bentuk (2.6):** semua butir dalam satu daftar memakai pola gramatikal sama, termasuk label kartu.
-7. **Tanpa metawacana (2.10):** dilarang "perlu diketahui", "pada bab ini akan dibahas".
-8. **Inti di kalimat pertama (2.7):** putusan lebih dulu, alasan menyusul.
-9. **Spesifik (2.8):** pakai angka; dilarang "banyak", "cukup", "sekitar".
-10. **Modalitas tegas (2.9):** tulis "wajib", "dapat", "tidak berhak" — bukan "diharapkan", "sebaiknya".
+```markdown
+| Waktu | Durasi | Tujuan Pembelajaran | Bagian | Aktivitas | Keluaran |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| [Waktu] | [Durasi] | [Tujuan] | [Bagian] | [Aktivitas] | [Keluaran] |
+```
 
-### 4.7 Audit bahasa sebagai bukti
+Tambahkan tabel pemetaan tujuan, perbandingan alokasi, penyimpangan dari *lesson plan*, dan pembagian babak atau sesi. Jika ada perubahan alokasi atau urutan, jelaskan alasannya. Jika tidak ada perubahan, tulis `Tidak ada penyimpangan dari lesson plan.`.
 
-Setelah seluruh bab selesai, `materi-<topik>.md` **wajib ditutup dengan bagian `Audit bahasa`** berupa tabel: tiap kategori wajib memuat tiga kolom — **temuan nyata** (kutipan asli dari naskah), **perbaikan yang diterapkan** (kutipan setelah diperbaiki), dan **status**. Pernyataan "sudah lolos" tanpa kutipan tidak dihitung sebagai bukti. Tabel audit ini direview pemilik materi bersama kerangka dan modul.
+### 4.6 Struktur Materi dan Daftar Slide
 
-**Seluruh kategori berikut wajib dicek dan dimasukkan ke tabel — tidak boleh di-skip:**
+Jumlah bagian dan topik tidak ditetapkan secara global. Setiap bagian memakai format berikut:
 
-| Kategori | Aturan | Pola yang wajib dicari |
+```markdown
+### Bagian [Nomor]. [Judul Bagian]
+
+**Tujuan bagian:** [Kemampuan yang dicapai peserta]
+
+**Alokasi:** [Durasi]
+
+**Keluaran:** [Hasil yang dihasilkan peserta]
+
+| Slide | Judul Slide | Isi Utama | Tujuan yang Didukung |
+| :--- | :--- | :--- | :--- |
+| [Nomor] | [Judul langsung] | [Isi utama] | [Tujuan] |
+
+**Isi slide [Nomor]:**
+
+[Definisi, penjelasan, contoh, instruksi, aktivitas, batas klaim, atau catatan fasilitator.]
+
+**Batas bagian:**
+
+[Materi yang tidak dibahas pada bagian ini.]
+```
+
+Struktur khusus seperti jumlah slide demonstrasi, jumlah slide praktik, siklus belajar, satu tokoh, atau urutan topik tertentu hanya digunakan jika ditetapkan oleh *lesson plan* atau keputusan pelatihan. Struktur tersebut bukan aturan global Tahap 3.
+
+### 4.7 Bagian Penutup Materi
+
+Bagian penutup wajib memuat glosarium, sumber riset, dan pertanyaan terbuka. Glosarium menggunakan tabel `Istilah | Definisi yang Dipakai | Diperkenalkan pada`. Sumber riset menggunakan tabel `Klaim atau Materi | Sumber | Status Verifikasi`. Semua data yang belum tersedia memakai `[BUTUH DATA: keterangan]`.
+
+### 4.8 Checklist Kerangka
+
+Periksa kesesuaian tujuan dengan `learning-brief.md`, kesesuaian rundown dengan *lesson plan*, kelengkapan tujuan dan keluaran setiap bagian, judul, bahasa, istilah, nomor slide, sumber, dan penanda kebutuhan data. Checklist ditulis sebagai tabel `Pemeriksaan | Status | Catatan`.
+
+### 4.9 Lecture Notes
+
+`Lecture Notes` wajib menjadi bagian paling akhir. Bagian ini berisi usulan *micro learning*, artikel, atau bahan bacaan yang mendukung dan memperkaya materi slide. Materi ini tidak dibahas dalam sesi utama dan tidak masuk hitungan slide.
+
+Gunakan format wajib berikut:
+
+```markdown
+## 7. Lecture Notes
+
+| No | Judul | Gambaran Isi Materi |
 | :--- | :--- | :--- |
-| Jenis kalimat | 2.1 | Fragment ("Baris demi baris, dari nol, sampai...") → digabung jadi kalimat deskriptif utuh |
-| Redundansi | 2.3 | Gagasan diulang ("Keterampilan yang dibangun... Keterampilan yang dibangun") → cukup satu |
-| Pelaku jelas | 2.5 | "menyerahkan seluruh kendali" — pelakunya siapa → perjelas |
-| Metawacana | 2.10 | "Pertanyaan itu dijawab di bab ini", "akan dibahas" → hapus |
-| Tanpa sisipan | 2.11 | Aposisi ("Simon Willison, penulis...") → dipisah jadi dua kalimat |
-| Pola buatan | 2.12 | "bukan X, melainkan Y" → pernyataan langsung |
-| Ragam cakapan | 3.3 | "kalau"→jika, "kenapa"→mengapa, termasuk di subjudul, latihan, dan kunci jawaban |
-| Konsistensi pasangan | 3.7 | Campur "setiap/tiap" → seragam memakai satu |
-| Istilah asing konsisten | 4.7 | "programmer" tegak sedangkan "web programmer" miring → seragamkan (dimiringkan) |
-| Kiasan dan hiperbola | 3.1 | "kelas dunia", "revolusioner", "gerbang masa depan" → fakta terukur |
-| Judul | 5.1 | Judul menggantung "Yang ...", judul kemasan ("3 langkah", "dalam 1 halaman") → ganti |
-| KBBI dan EYD | 4.2 | Kata tak ditemukan di KBBI → bentuk asli Inggris + miring; kaidah dicek ke EYD |
+| 1 | [Judul artikel atau bahan bacaan] | [Gambaran isi dan kaitannya dengan materi slide] |
+```
+
+Setiap judul harus menyebut isi secara langsung. Setiap gambaran isi harus menjelaskan hubungan bahan bacaan dengan materi slide. Lecture Notes tidak boleh menambahkan tujuan pembelajaran baru, menggantikan konsep utama, masuk ke rundown, atau memuat instruksi yang wajib disampaikan pada slide. Klaim faktual di dalamnya harus memiliki sumber atau penanda verifikasi.
 
 ---
 
 ## 5. Tahap 4: Arahan Slide Presentasi (`brief-ppt-<topik>.md`)
 
-Menurunkan naskah materi menjadi arahan visual menggunakan skill **`penyusun-brief-ppt-ioda`**:
-1. Mengikuti format ringkas per slide:
-   - **`Teks di slide`**: Teks kalimat/poin yang akan tampil di layar (maks 25 kata).
-   - **`Visual brief`**: Instruksi tata letak, warna, bentuk, kartu, dan diagram.
-2. Memuat **`KETENTUAN GLOBAL DECK`** (Header, Footer, Palet Ioda: Ungu `#652F8E`, Kuning `#FFC107`, Ungu Muda `#BD54F0`, Putih, Teks `#333333`).
-3. Memuat **`Registri Aset Global`** (Logo Ioda resmi, aset Q&A, dataset).
-4. Setiap slide wajib memiliki **`Sumber materi`** yang menunjuk bagian pada `materi-<topik>.md`.
+Turunkan kerangka materi yang sudah direview menjadi arahan visual menggunakan skill **`penyusun-brief-ppt-ioda`**:
+
+1. Gunakan format ringkas per slide dengan `Teks di slide`, `Visual brief`, dan `Sumber materi`.
+2. Terapkan batas teks dan aturan visual dari `penyusun-brief-ppt-ioda`.
+3. Setiap slide wajib menunjuk bagian kerangka materi yang menjadi sumbernya.
+4. Materi pada `Lecture Notes` tidak menjadi slide kecuali pemilik materi menetapkannya melalui keputusan baru.
 
 ---
 
 ## 6. Integrasi Skill Pendukung
 
 Dalam menjalankan alur ini, selalu rujuk skill pendukung:
-- **`panduan-menulis-dokumen`**: Untuk audit bahasa Indonesia baku di setiap penulisan dokumen.
-- **`penyusun-brief-ppt-ioda`**: Untuk katalog visual dan contoh format brief slide.
+
+- **`panduan-menulis-dokumen`**: Untuk judul, bahasa, kalimat, ejaan, istilah, dan audit dokumen.
+- **`penyusun-brief-ppt-ioda`**: Untuk katalog visual dan format brief slide.

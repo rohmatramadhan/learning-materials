@@ -8,8 +8,8 @@ Paket skill resmi untuk merancang dan menyusun materi pelatihan Ioda Academy di 
    - Mengorkestrasi seluruh alur materi dari awal sampai akhir:
      1. `learning-brief.md` (Analisis profil peserta & tujuan belajar)
      2. `riset-<topik>.md` (Riset bukti & skenario kerja 2 lapis)
-     3. `materi-<topik>.md` (Naskah naratif materi utama 10 fungsi)
-     4. `brief-ppt-<topik>.md` (Arahan slide presentasi)
+     3. `kerangka-materi-<topik>.md` (Kerangka materi dan daftar slide)
+     4. `brief-ppt-<topik>.md` (Arahan slide presentasi dari kerangka yang sudah direview)
 2. **`panduan-menulis-dokumen`**
    - Standar penulisan bahasa Indonesia baku ragam formal.
    - Dilengkapi tabel referensi ejaan baku dan padanan ragam cakapan (`references/ejaan-dan-ragam.md`).
